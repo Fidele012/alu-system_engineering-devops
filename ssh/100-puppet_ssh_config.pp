@@ -1,5 +1,14 @@
-#!/usr/bin/env bash
-#connect to a server without typing a password
-exec { ssh f0bfe481d3d6@f0bfe481d3d6.3a2627c1.alu-cod.online
-        path    => '/bin/'
+# Client configuration file with Puppet
+file_line { 'Turn_off_passwd_auth':
+  path    => '/etc/ssh/ssh_config',
+  line    => 'PasswordAuthentication no',
 }
+
+file_line { 'Declare_identity_file':
+  path    => '/etc/ssh/ssh_config',
+  line    => 'IdentityFile ~/.ssh/school',
+}
+
+
+
+
